@@ -15,7 +15,13 @@ class Solution:
                 #Check to See if The Sum of Numbers from Elements i & j Equals the Target
                 if new_nums[i][1] + new_nums[j][1] == self.target:
                     #print(new_nums[i][0], new_nums[j][0])
-                    return [new_nums[i][0], new_nums[j][0]]
+                    num1 = new_nums[i][0]
+                    num2 = new_nums[j][0]
+                    break
+        print(num1)
+        print(num2)
+        return [num1, num2]
+                    
                     
 #Instantiate the Class
 answer = Solution()
