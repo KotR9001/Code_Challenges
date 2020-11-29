@@ -14,3 +14,18 @@ from station;
 select distinct city
 from station
 where mod(id, 2) = 0;
+
+select count(city) - count(distinct city)
+from station;
+
+(select city, length(city)
+from station
+group by city
+order by length(city) asc, city asc
+limit 1)
+union
+(select city, length(city)
+from station
+group by city
+order by length(city) desc, city asc
+limit 1);
