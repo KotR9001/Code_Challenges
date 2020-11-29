@@ -26,7 +26,7 @@ def product_sum(a, m):
         #Add Up All Subsequence Values
         product_sum = subsequence + product_sum
     #Print the Product Sum
-    #print(f"The product sum is: {product_sum}")
+    print(f"The product sum is: {product_sum}")
     return product_sum
 
 tc = [

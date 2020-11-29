@@ -1,5 +1,4 @@
 import itertools
-import operator
 
 def product_sum(a, m):
     #Initialize the Product Sum
@@ -7,8 +6,35 @@ def product_sum(a, m):
     #Loop Through the Indices of Every Combination
     #Method Found at https://stackoverflow.com/questions/30820997/efficient-pythonic-way-of-finding-all-possible-sublists-of-a-list-in-given-ran
     subsequence_list = [list(listy) for listy in itertools.combinations(a, m)]
-    print(f"The subsequence list is: {subsequence_list}")
+    #Create an Empty Subsequence List
+    #subsequence_list = []
+    #print(f"The array is: {a}")
+    #print(f"The number of elements in a subsequence is: {m}")
+    #Loop Through Every Element in the Array
+    #for i in range(len(a)):
+        #Create an Empty Subsequence
+        #subsequence = []
+        #if len(subsequence) < m:
+        #for j in range(len(a)):
+            #if i != j:
+                #Append Elements Not Equal to i
+                #subsequence.append(a[j])
+                #print(f"The sequence length is: {len(subsequence)}, while the sequence is: {subsequence}")
+                #if len(subsequence) >= m:
+                    #break
+        #Append Each Subsequence to the Subsequence List
+        #subsequence_list.append(subsequence)
+
+    #for e in range(len(subsequence_list)):
+        #if m + e < len(subsequence_list[e]):
+            #subsequence_list[e] = subsequence_list[e][e:m+e]
+        #if m + e >= len(subsequence_list[e]):
+            #subsequence_list[e] = subsequence_list[e][0:m-len(subsequence_list[e])+e] + subsequence_list[e][e:len(subsequence_list[e])+1]
+
+    #print(f"The subsequence list is: {subsequence_list}")
     #[print(f"The listy_sliced is: {listy_sliced}") for listy_sliced in subsequence_list]
+    #subsequence = [listy_sliced[l] if l == 0 else listy_sliced[l] * listy_sliced[0] for listy_sliced in subsequence_list for l in range(len(listy_sliced))]
+    #print(subsequence)
     for listy_sliced in subsequence_list:
         for l in range(len(listy_sliced)):
             if l == 0:
@@ -18,7 +44,7 @@ def product_sum(a, m):
                 subsequence = listy_sliced[l] * subsequence
                 #print(f"The subsequence is: {subsequence}")
         product_sum = subsequence + product_sum
-    product_sum = [map(itertools.accumulate, listy_sliced[l]) for listy_sliced in subsequence_list for l in range(len(listy_sliced))]
+    #product_sum = [map(itertools.accumulate, listy_sliced[l]) for listy_sliced in subsequence_list for l in range(len(listy_sliced))]
     print(f"The product sum is: {product_sum}")
     return product_sum
 
