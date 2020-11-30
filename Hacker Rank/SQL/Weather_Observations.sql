@@ -33,3 +33,27 @@ limit 1);
 select distinct city
 from station
 where city like 'a%' or city like 'e%' or city like 'i%' or city like 'o%' or city like 'u%';
+
+select distinct city
+from station
+where city like '%a' or city like '%e' or city like '%i' or city like '%o' or city like '%u';
+
+select distinct city
+from station
+where city like '[A, E, I, O, U]%[a, e, i, o, u]';
+
+select distinct city
+from station
+where city not like '[A, E, I, O, U]%';
+
+select distinct city
+from station
+where city not like '%[A, E, I, O, U]';
+
+select distinct city
+from station
+where city not like '[A, E, I, O, U]%' or city not like '%[a, e, i, o, u]';
+
+select distinct city
+from station
+where city not like '[A, E, I, O, U]%' and city not like '%[a, e, i, o, u]';
