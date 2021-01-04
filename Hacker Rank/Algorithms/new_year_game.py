@@ -34,17 +34,36 @@ if __name__ == '__main__':
             # Initialize Player Scores & Difference
             Sb_list = []
             Sk_list = []
-            diff = 0
 
             #Loop Through Each Element in Score Sequence
             for e in range(len(sequence)):
                 #print(f"The score sequence is: {sequence[e]}")
                 #Add Even Indices to Balsa's Score
                 if e %2 == 0:
-                    Sb_list.append(sequence[e])
+                    #Check if Adding the Element Would Make the Modulus 3 of diff == 0
+                    if (abs(sum(Sb_list) - sum(Sk_list)) + sequence[e]) %3 == 0:
+                        #print(f"The index is {e} and the element is {sequence[e]}")
+                        #Check if the Element is the Last in the Sequence
+                        if all(sequence) %3 == 0:
+                            Sb_list.append(sequence[e])
+                        else:
+                            sequence.append(sequence[e])
+                        #print(f"The index is {e} and the element is {sequence[e]}")
+                    else:
+                        Sb_list.append(sequence[e])
                 #Add Odd Indices to Koca's Score
                 else:
-                    Sk_list.append(sequence[e])
+                    #Check if Adding the Element Would Make the Modulus 3 of diff != 0
+                    if (abs(sum(Sb_list) - sum(Sk_list)) - sequence[e]) %3 != 0:
+                        #print(f"The index is {e} and the element is {sequence[e]}")
+                        #Check if the Element is the Last in the Sequence
+                        if all(sequence) %3 != 0:
+                            Sk_list.append(sequence[e])
+                        else:
+                            sequence.append(sequence[e])
+                        #print(f"The index is {e} and the element is {sequence[e]}")
+                    else:
+                        Sk_list.append(sequence[e])
             #print(Sb_list)
             #print(Sk_list)
             Sb = sum(Sb_list)
@@ -61,10 +80,10 @@ if __name__ == '__main__':
                 koca_list.append('Koca')
             else:
                 balsa_list.append('Balsa')
-        #print(koca_list)
-        #print(balsa_list)
-        #print(len(koca_list))
-        #print(len(balsa_list))
+        #print(f"koca_list is: {koca_list}")
+        #print(f"balsa_list is: {balsa_list}")
+        #print(f"The length of koca_list is: {len(koca_list)}")
+        #print(f"The length of balsa_list is: {len(balsa_list)}")
 
         if len(koca_list) > len(balsa_list):
             print('Koca')
